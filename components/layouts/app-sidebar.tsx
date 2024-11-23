@@ -10,12 +10,10 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import {
-  Calendar,
+  ArrowLeftRight,
+  CreditCard,
   GalleryVerticalEnd,
-  Home,
-  Inbox,
-  Search,
-  Settings,
+  LayoutDashboard,
 } from "lucide-react";
 import { NavUser } from "./nav-user";
 import { NavMain } from "./nav-main";
@@ -28,29 +26,19 @@ const data = {
   },
   navMain: [
     {
-      title: "Home",
-      url: "#",
-      icon: Home,
+      title: "Dashboard",
+      url: "/",
+      icon: LayoutDashboard,
     },
     {
-      title: "Inbox",
-      url: "#",
-      icon: Inbox,
+      title: "Accounts",
+      url: "/accounts",
+      icon: CreditCard,
     },
     {
-      title: "Calendar",
+      title: "Transactions",
       url: "#",
-      icon: Calendar,
-    },
-    {
-      title: "Search",
-      url: "#",
-      icon: Search,
-    },
-    {
-      title: "Settings",
-      url: "#",
-      icon: Settings,
+      icon: ArrowLeftRight,
     },
   ],
 };

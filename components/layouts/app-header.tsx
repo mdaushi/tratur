@@ -8,21 +8,36 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { SidebarTrigger } from "@/components/ui/sidebar";
+import React from "react";
 
-export default function AppHeader() {
+interface BreadcrumbProps {
+  items: Array<{
+    label: string;
+    href?: string;
+  }>;
+}
+
+export default function AppHeader({ items }: BreadcrumbProps) {
   return (
     <header className="flex h-16 shrink-0 items-center gap-2 border-b px-4">
       <SidebarTrigger className="-ml-1" />
       <Separator orientation="vertical" className="mr-2 h-4" />
       <Breadcrumb>
         <BreadcrumbList>
-          <BreadcrumbItem className="hidden md:block">
-            <BreadcrumbLink href="#">Building Your Application</BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator className="hidden md:block" />
-          <BreadcrumbItem>
-            <BreadcrumbPage>Data Fetching</BreadcrumbPage>
-          </BreadcrumbItem>
+          {items.map((item, index) => (
+            <React.Fragment key={index}>
+              {index > 0 && <BreadcrumbSeparator className="hidden md:block" />}
+              <BreadcrumbItem
+                className={`${!item.href ? "" : "hidden md:block"}`}
+              >
+                {item.href ? (
+                  <BreadcrumbLink href={item.href}>{item.label}</BreadcrumbLink>
+                ) : (
+                  <BreadcrumbPage>{item.label}</BreadcrumbPage>
+                )}
+              </BreadcrumbItem>
+            </React.Fragment>
+          ))}
         </BreadcrumbList>
       </Breadcrumb>
     </header>
