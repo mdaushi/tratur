@@ -19,20 +19,15 @@ import { NavUser } from "./nav-user";
 import { NavMain } from "./nav-main";
 
 const data = {
-  user: {
-    name: "Firdaus",
-    email: "firdaus@gmail.com",
-    avatar: "",
-  },
   navMain: [
     {
       title: "Dashboard",
-      url: "/",
+      url: "/dashboard",
       icon: LayoutDashboard,
     },
     {
       title: "Accounts",
-      url: "/accounts",
+      url: "/dashboard/accounts",
       icon: CreditCard,
     },
     {
@@ -69,7 +64,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <NavMain items={data.navMain} />
       </SidebarContent>
       <SidebarFooter>
-        <NavUser user={data.user} />
+        <NavUser />
       </SidebarFooter>
     </Sidebar>
   );

@@ -1,7 +1,7 @@
 import { Head } from "@/components/head";
 import AppHeader from "@/components/layouts/app-header";
 
-export default function Home() {
+export default function PageDashboard() {
   const breadcrumb = [
     {
       label: "Dashboard",

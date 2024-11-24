@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+import { StackProvider, StackTheme } from "@stackframe/stack";
+import { stackServerApp } from "../stack";
 import localFont from "next/font/local";
 import "./globals.css";
-import SideBarProvider from "@/components/layouts/sidebar-provider";
 import { ModalProvider } from "@/providers/modal-provider";
 
 const geistSans = localFont({
@@ -30,7 +31,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <SideBarProvider>{children}</SideBarProvider>
+        <StackProvider app={stackServerApp}>
+          <StackTheme>{children}</StackTheme>
+        </StackProvider>
         <ModalProvider />
       </body>
     </html>
